@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Bevis Emmanuel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --left: #1a1a2e;
+    --left-light: #252545;
+    --accent: #c9a96e;
+    --white: #f5f3ee;
+    --text-muted: #a8a5b8;
+    --right-bg: #f9f7f2;
+    --text-dark: #1a1a2e;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8e4dc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .cv {
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    width: 860px;
+    min-height: 1100px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ── COLONNE GAUCHE ── */
+  .left {
+    background: var(--left);
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .photo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .photo-frame {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    overflow: hidden;
+    background: var(--left-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .section-left { display: flex; flex-direction: column; gap: 12px; }
+
+  .section-left h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(201,169,110,0.3);
+  }
+
+  .section-left p {
+    font-size: 13px;
+    color: #c8c5d8;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* formation */
+  .edu-item { margin-bottom: 14px; }
+  .edu-item .degree {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+  }
+  .edu-item .school {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    font-style: italic;
+  }
+  .edu-item .year {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 10px;
+    color: var(--accent);
+    background: rgba(201,169,110,0.12);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  /* compétences */
+  .skills-list { display: flex; flex-direction: column; gap: 8px; }
+  .skill-item { display: flex; flex-direction: column; gap: 4px; }
+  .skill-label { font-size: 12px; color: #c8c5d8; }
+  .skill-bar { height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+  .skill-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+  /* langues */
+  .lang-item { display: flex; justify-content: space-between; align-items: center; }
+  .lang-name { font-size: 12px; color: #c8c5d8; }
+  .lang-level { font-size: 10px; color: var(--accent); letter-spacing: 1px; }
+
+  /* contact */
+  .contact-list { display: flex; flex-direction: column; gap: 10px; }
+  .contact-row { display: flex; align-items: flex-start; gap: 10px; }
+  .contact-icon { width: 28px; height: 28px; background: rgba(201,169,110,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon svg { width: 12px; height: 12px; fill: var(--accent); }
+  .contact-text { font-size: 11px; color: #c8c5d8; line-height: 1.5; padding-top: 5px; word-break: break-word; }
+
+  /* ── COLONNE DROITE ── */
+  .right {
+    background: var(--right-bg);
+    padding: 44px 44px 44px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .header { border-bottom: 2px solid var(--text-dark); padding-bottom: 20px; }
+  .header .name-last {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .header .name-first {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--text-dark);
+    line-height: 1.1;
+  }
+  .header .title {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .section-right h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-right h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #d8d3c8;
+  }
+
+  .exp-item { margin-bottom: 22px; }
+  .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+  .exp-company { font-size: 15px; font-weight: 500; color: var(--text-dark); }
+  .exp-year { font-size: 11px; color: var(--accent); font-weight: 500; letter-spacing: 1px; }
+  .exp-role { font-size: 12px; color: #666; font-style: italic; margin-bottom: 8px; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .exp-bullets li { font-size: 12px; color: #444; line-height: 1.55; padding-left: 14px; position: relative; }
+  .exp-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 2px; }
+</style>
+</head>
+<body>
+<div class="cv">
+
+  <!-- GAUCHE -->
+  <div class="left">
+    <div class="photo-wrap">
+      <div class="photo-frame">B</div>
+    </div>
+
+    <div class="section-left">
+      <h3>Contact</h3>
+      <div class="contact-list">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
+          <div class="contact-text">07 75 74 46 97</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="contact-text">emmanuelbevis3@gmail.com</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="contact-text">15 bis rue de la nouvelle France, Aubervilliers</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-left">
+      <h3>Formation</h3>
+      <div class="edu-item">
+        <div class="degree">BAC +2 BTS SNIR — Système Numérique</div>
+        <div class="school">Lycée Chevalier de Saint-Georges, Abymes</div>
+        <span class="year">2023 – 2024</span>
+      </div>
+      <div class="edu-item">
+        <div class="degree">BAC Technologique STI2D — Option SIN</div>
+        <div class="school">Lycée Charles Coeffin, Baie-Mahault</div>
+        <span class="year">2022 – 2023</span>
+      </div>
+    </div>
+
+   <div class="section-left">
+  <h3>Compétences</h3>
+  <div class="skills-list">
+
+    <div class="skill-item">
+      <div class="skill-label">JavaScript</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-label">HTML / CSS</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-label">PHP</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-label">Visual Studio Code / Notepad++</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-label">Pack Office</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-label">Résolution de problèmes</div>
+    </div>
+    
+    <div class="skill-item">
+      <div class="skill-label">Structuration de pages web</div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-label">Résolution de problèmes techniques</div>
+    </div>
+    
+    <div class="skill-item">
+      <div class="skill-label">Capacité d’apprentissage rapides</div>
+    </div>
+    
+    <div class="skill-item">
+      <div class="skill-label">Autonomie</div>
+    </div>
+    
+    <div class="skill-item">
+      <div class="skill-label">Travail en équipe</div>
+    </div>
+    
+    <div class="skill-item">
+      <div class="skill-label">Gestion de projets simples (Github)</div>
+    </div>
+    
+  </div>
+    </div>
+
+    <div class="section-left">
+      <h3>Langues</h3>
+      <div class="contact-list">
+        <div class="lang-item">
+          <span class="lang-name">Français</span>
+          <span class="lang-level">Langue maternelle</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Créole</span>
+          <span class="lang-level">Langue maternelle</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Anglais</span>
+          <span class="lang-level">Niveau scolaire</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DROITE -->
+  <div class="right">
+    <div class="header">
+      <div class="name-last">BEVIS</div>
+      <div class="name-first">Emmanuel</div>
+      <div class="title">Développeur web junior</div>
+    </div>
+
+    <div class="section-right">
+      <h2>Profil</h2>
+      <p style="font-size:13px;color:#444;line-height:1.75;">
+        Jeune diplômé d'un BTS SNIR, passionné par le développement et les nouvelles technologies, j'ai acquis des compétences en développement web et en maintenance informatique. Curieux et rigoureux, je souhaite rejoindre une entreprise en tant que développeur afin de contribuer à des projets concrets, renforcer mes compétences techniques et évoluer dans un environnement professionnel stimulant.
+      </p>
+    </div>
+
+    <div class="section-right">
+      <h2>Expérience</h2>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Mairie de Baie-Mahault</div>
+          <div class="exp-year">2024</div>
+        </div>
+        <div class="exp-role">Technicien informatique — Mairie (service informatique)</div>
+        <ul class="exp-bullets">
+          <li>Assistance aux utilisateurs dans la résolution de problèmes informatiques (postes, logiciels, imprimantes)</li>
+          <li>Installation, configuration et maintenance des équipements informatiques</li>
+          <li>Gestion et suivi des incidents techniques</li>
+          <li>Mise à jour et sécurisation des postes de travail</li>
+          <li>Support aux agents dans l'utilisation des outils numériques</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Orange Caraïbes</div>
+          <div class="exp-year">2023</div>
+        </div>
+        <div class="exp-role">Développeur web — gestion des abonnements clients Orange Caraïbes — stage 1ère année BTS</div>
+        <ul class="exp-bullets">
+          <li>Initiation aux langages de développement web (JavaScript, HTML, CSS, PHP)</li>
+          <li>Développement d'une interface permettant la gestion des informations clients</li>
+          <li>Découverte de la création et de l'utilisation d'API</li>
+          <li>Utilisation de Visual Studio Code dans un environnement de développement</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
